@@ -123,7 +123,7 @@ require_once "db.php";
             <label>
                 Adresse de facturation
             </label>
-            <input type="text" name="facturation" placeholder="avenue des moulins rouge">
+            <input type="text" required name="facturation" placeholder="avenue des moulins rouge">
 
         </div>
 
@@ -131,7 +131,7 @@ require_once "db.php";
             <label>
                 Adresse de livraison
             </label>
-            <input type="text" name="livraison" placeholder="Adresse de livraison">
+            <input type="text" required name="livraison" placeholder="Adresse de livraison">
 
         </div>
 
@@ -139,7 +139,7 @@ require_once "db.php";
             <label>
                 Numéro de téléphone
             </label>
-            <input type="tel" name="phone" placeholder="06 30 85 89 45">
+            <input type="tel" required name="phone" placeholder="06 30 85 89 45">
         </div>
 
     </fieldset>
@@ -157,12 +157,12 @@ require_once "db.php";
         <fieldset>
 
             <div>
-                <input  name="contactme" type="checkbox">
+                <input   required name="contactme" type="checkbox">
                 j'accepte de me faire contacter
             </div>
 
             <div>
-                <input type="checkbox">
+                <input  required type="checkbox">
                 j'accepte les conditions d'utilisation
             </div>
         </fieldset>

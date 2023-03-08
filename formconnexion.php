@@ -1,5 +1,7 @@
 <?php
 require_once "db.php";
+session_start();
+
 $email = $_POST['email'];
 $password=$_POST['password'];
 
@@ -15,6 +17,8 @@ $donnee =$req->fetch();
     else{
         if ($donnee['motdepasse']==$password){
             echo'<p> identification reussi</p>';
+            $_session['motdepasse']=$password;
+            header('Location: homepage.php');
 
         }
         else{

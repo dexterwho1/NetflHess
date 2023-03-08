@@ -1,0 +1,63 @@
+fieldset {
+    width: 200%; /* ou toute autre valeur que vous souhaitez utiliser */
+}
+.checkout{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.panier{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+
+}
+
+.elementpanier{
+    margin-bottom: 15px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.elementpanier input{
+    height:50px;
+}
+
+.gauchepanier{
+    display:flex;
+}
+
+.gauchepanier img{
+    height:50px;
+}
+
+.gauchepanier p{
+    margin-left: 35px;
+}
+
+
+.droitepanier{
+    display:flex;
+}
+
+.droitepanier input{
+    margin-left: 12px;
+}
+
+
+
+.baspanier{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.montantetresumebaspanier{
+    display:flex;
+
+}
+
+.montantetresumebaspanier button{
+    margin-left:15%;
+
+}

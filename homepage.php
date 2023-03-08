@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "db.php";
 ?>
 <!DOCTYPE html>
@@ -60,7 +61,9 @@ require_once "db.php";
             </li>
 
             <li>
-                utilisateur
+                <?php
+                echo $_SESSION['email'];
+                ?>
             </li>
 
         </div>

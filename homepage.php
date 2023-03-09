@@ -138,18 +138,19 @@ require_once "db.php";
     <aside class="movieGallery">
 
         <?php
-        $req = $bdd->prepare('SELECT realisateur, image, titre, date_parution FROM film');
+        $req = $bdd->prepare('SELECT id, realisateur, image, titre, date_parution FROM film');
         $req->execute();
 
 
+
+
         while ($donnee = $req->fetch()) {
-
-
             echo '<li class="singlemovieGallery">';
             echo '<img src="image/homepage/poster/'.$donnee['image'].'" />';
-            echo '<p>'. $donnee['titre'] .' de '. $donnee['realisateur'] .' en '. $donnee['date_parution'] .'</p>';
+            echo '<a style="color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='. $donnee['id'] .'">'. $donnee['titre'] .' de '. $donnee['realisateur'] .' en '. $donnee['date_parution'] .'</a>';
             echo '</li>';
         }
+
 
 
 

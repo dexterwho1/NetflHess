@@ -129,9 +129,21 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+
 .singlemovieGallery{
     font-style: italic;
     width:30%;
     min-width: 30%;
     height:auto;
+    text-decoration: none;
+
+}
+
+.liensinglemovieGallery{
+    color:black;
+    font-style: italic;
+    width:30%;
+    min-width: 30%;
+    height:auto;
+    text-decoration: none;
 }

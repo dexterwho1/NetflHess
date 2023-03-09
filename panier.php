@@ -79,108 +79,54 @@ session_start();
             <legend>
                 Mon panier
             </legend>
-
             <div class="panier">
-                <div class="elementpanier">
-                    <div class="gauchepanier">
-                        <img src="image/homepage/poster/affiche.png">
-                        <p>
-                            Les démons de minuits
-                        </p>
+                <?php
+                $req = $bdd->prepare('SELECT film.id, titre, prix, affiche FROM film INNER JOIN panier ON film.id = panier.id_film WHERE id_utilisateur = :id');
+                $req->execute(array(
+                    ':id' => $_SESSION['email']
+                ));
+                while ($donnee = $req->fetch()) {
+                    ?>
+                    <div class="elementpanier">
+                        <div class="gauchepanier">
+                            <img src="image/homepage/poster/<?= $donnee['affiche'] ?>">
+                            <p>
+                                <?= $donnee['titre'] ?>
+                            </p>
+                        </div>
+                        <div class="droitepanier">
+                            <p>
+                                <?= $donnee['prix'] ?>
+                            </p>
+                            <a href="enleverpanier.php?id=<?= $donnee['id'] ?>">supprimer</a>
+                        </div>
                     </div>
-
-                    <div class="droitepanier">
-                        <p>
-                            17,90€
-                        </p>
-                        <input type="submit" value="Supprimer">
-                    </div>
+                    <?php
+                }
+                $req->closeCursor();
+                ?>
+            </div>
+            <div class="baspanier">
+                <div class="montantetresumebaspanier">
+                    <p> Montant total :
+                        <?php
+                        $req = $bdd->prepare('SELECT SUM(prix) FROM film JOIN panier ON film.id = panier.id_film WHERE id_utilisateur = :id');
+                        $req->execute(array(
+                            ':id' => $_SESSION['email']
+                        ));
+                        $donnee = $req->fetch();
+                        echo $donnee['SUM(prix)'];
+                        $req->closeCursor();
+                        ?>
+                    </p>
+                    <button>
+                        valider le panier
+                    </button>
                 </div>
-
-                <div class="elementpanier">
-                    <div class="gauchepanier">
-                        <img src="image/homepage/poster/affiche.png">
-                        <p>
-                            Le voyage de Chihiro
-                        </p>
-                    </div>
-
-                    <div class="droitepanier">
-                        <p>
-                            12,99€
-                        </p>
-                        <input type="submit" value="Supprimer">
-                    </div>
-                </div>
-
-                <div class="elementpanier">
-                    <div class="gauchepanier">
-                        <img src="image/homepage/poster/affiche.png">
-                        <p>
-                            La la land
-                        </p>
-                    </div>
-
-                    <div class="droitepanier">
-                        <p>
-                            9,99€
-                        </p>
-                        <input type="submit" value="Supprimer">
-                    </div>
-                </div>
-
-                <div class="elementpanier">
-                    <div class="gauchepanier">
-                        <img src="image/homepage/poster/affiche.png">
-                        <p>
-                            Inception
-                        </p>
-                    </div>
-
-                    <div class="droitepanier">
-                        <p>
-                            8,50€
-                        </p>
-                        <input type="submit" value="Supprimer">
-                    </div>
-                </div>
-
-                <div class="elementpanier">
-                    <div class="gauchepanier">
-                        <img src="image/homepage/poster/affiche.png">
-                        <p>
-                            Les évadés
-                        </p>
-                    </div>
-
-                    <div class="droitepanier">
-                        <p>
-                            14,99€
-                        </p>
-                        <input type="submit" value="Supprimer">
-                    </div>
+                <div>
+                    <a href="viderpanier.php?id=<?= $_SESSION['email'] ?>">supprimer</a>
                 </div>
             </div>
-        <div class="baspanier">
-            <div class="montantetresumebaspanier">
-                <p> Montant total : 17€ </p>
-                <button>
-                    valider le panier
-                </button>
-
-            </div>
-
-            <div>
-                <button>
-                    Vider le panier
-                </button>
-
-
-
-            </div>
-
-
-        </div>
         </fieldset>
     </form>
 

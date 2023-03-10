@@ -48,8 +48,8 @@ require_once "db.php";
     <!-- menu horizontal -->
 
     <nav class="menuHeader">
-        <form>
-            <input type="search" placeholder="Alice au pays des merveilles">
+        <form action="barrederecherche.php" method="POST">
+            <input type="search" name="search" placeholder="Alice au pays des merveilles">
             <input type="submit">
 
 

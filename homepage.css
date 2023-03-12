@@ -104,6 +104,9 @@ body{
 }
 
 
+.clickCategory{
+    background-color: red;
+}
 .navCategory {
     list-style: none;
     display: flex;

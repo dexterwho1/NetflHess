@@ -170,9 +170,9 @@ require_once "db.php";
         <div>
             <input type="submit">
         </div>
-
-
     </form>
+    <a class ="login " href="connexion.php"> Deja un compte ? se connecter </a>
+
 
 </section>
 

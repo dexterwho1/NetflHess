@@ -17,7 +17,7 @@ $donnee =$req->fetch();
     else{
         if ($donnee['motdepasse']==$password){
             echo'<p> identification reussi</p>';
-            $_session['motdepasse']=$password;
+            $_SESSION['email']=$email;
             header('Location: homepage.php');
 
         }

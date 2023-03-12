@@ -87,8 +87,10 @@ require_once "db.php";
     <article class="filmvedettesection">
 
         <?php
-        $req = $bdd->prepare('SELECT titre, synopsis, affiche, realisateur, studio, date_parution, prix FROM film ORDER BY RAND() LIMIT 1');
-        $req->execute();
+        $req = $bdd->prepare('SELECT titre,genre, synopsis, affiche, realisateur, studio, date_parution, prix FROM film  where id=:id');
+        $req->execute(array(
+            'id'=>$_GET['id'])
+        );
         while ($donnee = $req->fetch()) {
             echo '<style>.filmvedettesection{background-image: url(image/homepage/affiche/'. $donnee['affiche'] .');}</style>';
             echo '<div class="titreFilmvedetteSection">';
@@ -103,9 +105,11 @@ require_once "db.php";
 
             echo '<div class="genreFilmvedetteSection">';
             echo '<ul>';
-            echo '<li>Décalé</li>';
-            echo '<li>Sombre</li>';
-            echo '<li>Humour noir</li>';
+            foreach(explode(",", $donnee['genre']) as $genre) {
+                echo '<li>';
+                echo $genre;
+                echo '</li>';
+            }
             echo '</ul>';
             echo '</div>';
 
@@ -120,33 +124,17 @@ require_once "db.php";
 
     <!-- liste d'émoticones servant à trier les films ou séries  par genre -->
 
-    <nav class="navCategory">
-        <?php
-        $req = $bdd->prepare('SELECT nom, image FROM genre');
-        $req->execute();
 
-        while ($donnee = $req->fetch()) {
-            echo '<li>';
-            echo '<div class="image-container">';
-            echo '<img style="height: 60px; width: 50px;" class="imageNavCategory" src="image/homepage/category/'.$donnee['image'].'" />';
-            echo '<a href="affichecategorie.php?id='.$donnee["nom"].'">'.$donnee["nom"].'</a>';
-            echo '</div>';
-            echo '</li>';
-        }
-        ?>
-
-
-    </nav>
-
-    <!-- film ou séries trié -->
 
 
 
     <aside class="movieGallery">
-
+        <p> Du même réalisateur</p>
         <?php
-        $req = $bdd->prepare('SELECT id, realisateur, image, titre, date_parution FROM film');
-        $req->execute();
+        $req = $bdd->prepare('SELECT image, titre, date_parution FROM where realisateur=:i');
+        $req->execute(
+            'realisateur'
+        );
 
         while ($donnee = $req->fetch()) {
             echo '<li class="singlemovieGallery">';
@@ -157,6 +145,7 @@ require_once "db.php";
             echo '</li>';
         }
         ?>
+        <p> Vous allez adorer ! </p>
 
 
 

@@ -81,21 +81,30 @@ session_start();
             <legend>
                Connexion
             </legend>
-
-            <div>
+            <?php
+            if (isset($_SESSION['email'])) {
+            echo $_SESSION['email'];
+            echo '<a href="sedeconnecter.php">
+                    Se déconnecter
+                </a>';
+            } else {
+                echo'<div>
                 <label>
-                    Adresse e-mail
+                Adresse e-mail
                 </label>
                 <input name="email" required type="text">
 
                 <label>
-                    Mot de passe
+                Mot de passe
                 </label>
                 <input name="password" required type="text">
 
                 <input type="submit">
             </div>
-        </fieldset>
+        </fieldset>';            }
+
+            ?>
+
 
 
 

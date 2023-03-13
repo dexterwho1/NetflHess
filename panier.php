@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="panier.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tDZBOSXpx2vtyGJPH/BrB/3sNC6UvxQ6UaZ6NDH1+IH3z9g9KjG9fR5C45z+DDh4BcYbivJOfn/x+kvfnBAdFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -76,8 +77,8 @@ session_start();
 <section class="checkout">
     <form>
         <fieldset style="width: 150%;">
-            <legend>
-                Mon panier
+            <legend style="margin-top: 15px;">
+                Mon panier <i class="em em-shopping_trolley" aria-role="presentation" aria-label="SHOPPING TROLLEY"></i>
             </legend>
             <div class="panier">
                 <?php
@@ -87,7 +88,7 @@ session_start();
                 ));
                 while ($donnee = $req->fetch()) {
                     ?>
-                    <div class="elementpanier">
+                    <div class="elementpanier ">
                         <div class="gauchepanier">
                             <img src="image/homepage/poster/<?= $donnee['affiche'] ?>">
                             <p>
@@ -98,7 +99,7 @@ session_start();
                             <p>
                                 <?= $donnee['prix'] ?>
                             </p>
-                            <a href="enleverpanier.php?id=<?= $donnee['id'] ?>">supprimer</a>
+                            <a href="enleverpanier.php?id=<?= $donnee['id'] ?>"><i class="em em-x" aria-role="presentation" aria-label="CROSS MARK"></i></a>
                         </div>
                     </div>
                     <?php
@@ -116,15 +117,16 @@ session_start();
                         ));
                         $donnee = $req->fetch();
                         echo $donnee['SUM(prix)'];
+                        echo'€';
                         $req->closeCursor();
                         ?>
                     </p>
-                    <button>
+                    <button class="submit">
                         valider le panier
                     </button>
                 </div>
                 <div>
-                    <a href="viderpanier.php?id=<?= $_SESSION['email'] ?>">supprimer</a>
+                    <a href="viderpanier.php?id=<?= $_SESSION['email'] ?>"> <i class="em em-wastebasket" aria-role="presentation" aria-label=""></i>supprimer</a>
                 </div>
             </div>
         </fieldset>

@@ -1,0 +1,29 @@
+```
+Dans ce projet Python, nous avons identifié les tâches suivantes à réaliser :
+
+•	Le développement de l’algorithmie du jeu : -	Organisation du code
+-	Gestion des mouvements, et des barrières
+-	Gestion de la victoire 
+-	Lancement du jeu
+
+•	Développement de l’interface utilisateur :   -	Intégrations d’éléments graphiques
+-	Plateau de jeu
+-	Prévisualisation des mouvements et barrières
+
+•	Mise en place du jeu en réseau : 	       - 	Configuration d’un serveur
+-	Etablissement de la connexion
+-	Transmission des données
+-	Sécurité de la transmission
+
+•	Conception d’une base de données avec 3 tables différentes : user, shop_game, buy
+
+Après analyse de chaque compétences des membres de l’équipe, une répartition des tâches équitables s’est mise en place, nous avons choisis la répartition suivante :
+
+-	Algorithme du jeu : attribué à Mattéo et Thiméo, car après de nombreux projets réalisés ensemble dans ce domaine la mise en place était la plus facile et donc plus rapide à la conception.
+-	Interface graphique : attribué à Gabin, étant prêt à apprendre une nouvelle librairie graphique, et grâce à son expérience dans le domaine du développement de jeu graphique en python, c’est le meilleur des éléments pour cette section du développement.
+-	Jeu en réseau : attribué à Lucas, qui possède une solide expérience dans le domaine du réseau. 
+-	 Base de données : attribué à Thiméo, car il possède une expérience dans cette gestion au vue des projets réalisés.
+-	Rédaction de la documentations : chaque sections du code a été attribué à chacun pour rédiger au mieux et le plus clairement la description de son domaine.
+
+Après avoir répartis le plus équitablement et de manière organisé les différentes parties de projet, nous avons plus en place des échéances pour chaque domaine nous permettant à nouveau d’être le plus efficace dans la création du jeu. En cas de besoin, nous nous tiendrons mutuellement informés de tout changement ou retard potentiel pour éviter les conflits et les retards dans la livraison du projet.
+```

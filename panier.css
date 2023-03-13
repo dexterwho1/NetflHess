@@ -1,6 +1,13 @@
 fieldset {
+    background-color: #DDDDDD;
+    border:none;
     width: 200%; /* ou toute autre valeur que vous souhaitez utiliser */
 }
+fieldset:hover {
+    border: 3px solid #f4bc24;
+    animation: border-appear 0.5s ease-in-out;
+}
+
 .checkout{
     display:flex;
     justify-content: center;
@@ -44,7 +51,17 @@ fieldset {
     margin-left: 12px;
 }
 
+.submit{
+    background-color: #e14d4b;
+    outline-color: white;
 
+}
+
+.submit:hover{
+    background-color: #f4bc24;
+
+
+}
 
 .baspanier{
     display:flex;

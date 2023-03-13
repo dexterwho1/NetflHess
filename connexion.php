@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="connexion.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tDZBOSXpx2vtyGJPH/BrB/3sNC6UvxQ6UaZ6NDH1+IH3z9g9KjG9fR5C45z+DDh4BcYbivJOfn/x+kvfnBAdFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -74,7 +75,7 @@ session_start();
 
 <!-- principal -->
 <section class="inscriptionpage">
-    <p class ="login "> Déja un compte ? <a  href="connexion.php">  se connecter </a></p>
+    <p class ="login "> Pas de  compte ? <a  href="inscription.php">  s'inscrire </a></p>
 
     <form  style ="background-color: #DDDDDD;" method="post" action="formconnexion.php">
         <!-- Identité-->
@@ -88,12 +89,13 @@ session_start();
             } else {
                 echo '
                 <div>
-                    <label>Adresse e-mail</label>
+                    <label>                    <i class="em em-e-mail" aria-role="presentation" aria-label="E-MAIL SYMBOL"></i>
+                    </label>
                     <input name="email" required  placeholder="adresse email"type="text">
                 </div>
 
                 <div>
-                    <label>Mot de passe</label>
+                    <label><i class="em em-closed_lock_with_key" aria-role="presentation" aria-label="CLOSED LOCK WITH KEY"></i></label>
                     <input name="password"  placeholder=" mot de passe" required type="text">
                 </div>
 

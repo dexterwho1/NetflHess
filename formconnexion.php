@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $password=$_POST['password'];
 
 $req = $bdd->prepare(
-        'select email,motdepasse from utilisateur where email =:email'
+        'select prenom, email,motdepasse from utilisateur where email =:email'
 );
 $req->execute(array('email' =>$email));
 $donnee =$req->fetch();
@@ -18,6 +18,8 @@ $donnee =$req->fetch();
         if ($donnee['motdepasse']==$password){
             echo'<p> identification reussi</p>';
             $_SESSION['email']=$email;
+            $_SESSION['prenom'] = $donnee['prenom'];
+
             header('Location: homepage.php');
 
         }

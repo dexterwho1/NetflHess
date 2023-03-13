@@ -131,23 +131,38 @@ require_once "db.php";
     <aside class="movieGallery">
         <p> Du même réalisateur</p>
         <?php
-        $req = $bdd->prepare('SELECT image, titre, date_parution FROM where realisateur=:i');
-        $req->execute(
-            'realisateur'
+        $req = $bdd->prepare('SELECT id, image, titre,  date_parution FROM film where realisateur=:idrealisateur');
+        $req->execute(array(
+            'idrealisateur'=>$_GET['realisateur'])
+
         );
 
         while ($donnee = $req->fetch()) {
             echo '<li class="singlemovieGallery">';
             echo '<img src="image/homepage/poster/'.$donnee['image'].'" />';
             echo '<a style="color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='.$donnee['id'].'">';
-            echo '<a href="singlefilm.php?id='.$donnee['id'].'">'.$donnee['titre'].'</a> de <a href="afficherfilmdeacteur.php?id='.$donnee['realisateur'].'">'.$donnee['realisateur'].'</a> en '.$donnee['date_parution'];
+            echo '<a href="singlefilm.php?id='.$donnee['id'].'">'.$donnee['titre'].'</a> en '.$donnee['date_parution'];
             echo '</a>';
             echo '</li>';
         }
         ?>
         <p> Vous allez adorer ! </p>
 
+        <?php
 
+        $req = $bdd->prepare('SELECT titre, id , image, date_parution FROM film WHERE genre IN (SELECT genre FROM film WHERE id like %:id%)');
+        $req->execute(array(
+                'id'=>$_GET['id']
+        ));
+         while ($donnee = $req->fetch()) {
+             echo '<li class="singlemovieGallery">';
+             echo '<img src="image/homepage/poster/'.$donnee['image'].'" />';
+             echo '<a style="color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='.$donnee['id'].'">';
+             echo '<a href="singlefilm.php?id='.$donnee['id'].'">'.$donnee['titre'].'</a> en '.$donnee['date_parution'];
+             echo '</a>';
+             echo '</li>';
+         }
+        ?>
 
         <li class="singlemovieGallery">
             <img src="image/homepage/movieGallery.png">

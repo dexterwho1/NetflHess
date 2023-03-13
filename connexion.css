@@ -38,7 +38,6 @@ fieldset:hover {
 
 
 .login a {
-    display: inline-block;
     position: relative;
     color: #0087ca;
 }
@@ -95,7 +94,7 @@ input::placeholder {
 
 .inscriptiontext p{
     font-style:italic;
-    margin-top: -15px;
+    margin-top: -5px;
     color:darkgrey;
 }
 
@@ -115,17 +114,21 @@ input::placeholder {
 
 
 }
- .login {
-     text-decoration: none;
-     font-size: larger;
-    margin-right: -800px;
-     margin-top:-600px;
-     position:absolute;
+
+form{
+    background-color:grey;
+}
+.login {
+    text-decoration: none;
+    font-size: larger;
+    margin-right: -570px;
+    margin-top:-180px;
+    position:absolute;
 }
 
- .login a{
-     font-size: medium;
+.login a{
+    font-size: medium;
 
-     color:#5565ff;
-     text-decoration: none;
- }
+    color:#5565ff;
+    text-decoration: none;
+}

@@ -7,6 +7,7 @@ require_once "db.php";
     <meta charset="UTF-8">
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="inscription.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tDZBOSXpx2vtyGJPH/BrB/3sNC6UvxQ6UaZ6NDH1+IH3z9g9KjG9fR5C45z+DDh4BcYbivJOfn/x+kvfnBAdFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -72,106 +73,121 @@ require_once "db.php";
 
 <!-- principal -->
 <section class="inscriptionPage">
+    <p class ="login "> Déja un compte ? <a  href="connexion.php">  se connecter </a></p>
+
     <form method='post' action='forminscription.php'>
+    <div class="upforminscription">
 
-    <!-- Identité-->
-      <fieldset>
-          <legend>
-              Identité
-          </legend>
-        <div>
-            <label>
-                Nom
-            </label>
-            <input type="text" name="lastname" placeholder="dupont">
+        <!-- Identité-->
+        <div class="inscriptiontext">
+            <h1>
+                S'inscrire
+            </h1>
+            <p>
+                L'inscription peut se montrer nécessaire pour certaines fonctionnalités
+            </p>
         </div>
-
-        <div>
-            <label>
-                prenom
-            </label>
-            <input type="name" name="firstname" placeholder="martin">
-
-        </div>
-      </fieldset>
-
-     <fieldset>
-         <legend>
-             Connexion
-         </legend>
-         <div>
-             <label>
-                 adresse-email
-             </label>
-             <input type="email" name="email" placeholder="email">
-
-         </div>
-
-         <div>
-             <label>
-                 mot de passe
-             </label>
-             <input type="password" name="password" placeholder="Pas1234">
-         </div>
-     </fieldset>
-
-    <fieldset>
-        <legend>
-            Facturation
-        </legend>
-        <div>
-            <label>
-                Adresse de facturation
-            </label>
-            <input type="text" required name="facturation" placeholder="avenue des moulins rouge">
-
-        </div>
-
-        <div>
-            <label>
-                Adresse de livraison
-            </label>
-            <input type="text" required name="livraison" placeholder="Adresse de livraison">
-
-        </div>
-
-        <div>
-            <label>
-                Numéro de téléphone
-            </label>
-            <input type="tel" required name="phone" placeholder="06 30 85 89 45">
-        </div>
-
-    </fieldset>
-
-    <fieldset>
-        <legend>
-            Paiement
-        </legend>
-        <div>
-            <input type="radio" name="checkout"> Paypal
-            <input type="radio" name="checkout"> Master Card
-        </div>
-    </fieldset>
-
-        <fieldset>
-
+        <div class="inscriptioncontent">
+          <fieldset>
+              <legend>
+                  Identité
+              </legend>
             <div>
-                <input   required name="contactme" type="checkbox">
-                j'accepte de me faire contacter
+                <label>
+                    <i class="em em-name_badge" aria-role="presentation" aria-label="NAME BADGE"></i>
+                </label>
+
+                <input type="text" name="lastname" placeholder="nom de famille">
             </div>
 
             <div>
-                <input  required type="checkbox">
-                j'accepte les conditions d'utilisation
+
+                <label>
+                    <i class="em em-raising_hand" aria-role="presentation" aria-label="HAPPY PERSON RAISING ONE HAND"></i>                </label>
+                <input type="name" name="firstname" placeholder="Prénom">
+
+            </div>
+          </fieldset>
+
+         <fieldset>
+             <legend>
+                 Connexion
+             </legend>
+             <div>
+                 <label>
+                     <i class="em em-e-mail" aria-role="presentation" aria-label="E-MAIL SYMBOL"></i>
+                 </label>
+                 <input type="email" name="email" placeholder="email">
+
+             </div>
+
+             <div>
+                 <label>
+                     <i class="em em-key" aria-role="presentation" aria-label="KEY"></i>
+                 </label>
+                 <input type="password" name="password" placeholder="mot de passe">
+             </div>
+         </fieldset>
+
+        <fieldset>
+            <legend>
+                Facturation
+            </legend>
+            <div>
+                <label>
+                    <i class="em em-house" aria-role="presentation" aria-label="HOUSE BUILDING"></i>
+                </label>
+                <input type="text" required name="facturation" placeholder="L'adresse de facturation">
+
+            </div>
+
+            <div>
+                <label>
+                    <i class="em em-truck" aria-role="presentation" aria-label="L'adresse de livraison"></i>
+                </label>
+                <input type="text" required name="livraison" placeholder="Adresse de livraison">
+
+            </div>
+
+            <div>
+                <label>
+                    <i class="em em-phone" aria-role="presentation" aria-label="BLACK TELEPHONE"></i>
+                </label>
+                <input type="tel" required name="phone" placeholder="numéro de téléphone">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Paiement
+            </legend>
+            <div>
+                <input type="radio" name="checkout"> Paypal
+                <input type="radio" name="checkout"> Master Card
             </div>
         </fieldset>
 
-        <div>
-            <input type="submit">
-        </div>
+            <fieldset>
+
+                <div>
+                    <input   required name="contactme" type="checkbox">
+                    j'accepte de me faire contacter
+                </div>
+
+                <div>
+                    <input  required type="checkbox">
+                    j'accepte les conditions d'utilisation
+                </div>
+            </fieldset>
+
+            <div>
+                <input class="submit" type="submit">
+            </div>
+        </div >
+
     </form>
-    <a class ="login " href="connexion.php"> Deja un compte ? se connecter </a>
+    </div>
 
 
 </section>

@@ -170,13 +170,11 @@ require_once "db.php";
             echo '<a href="singlefilm.php?id='.$donnee['id'].'&realisateur='.$donnee['realisateur'].'&idgenre='.$donnee['genre'].'" class="buttonsinglemoviegallery2" > Wahou, je veux le voir <i class="em em-star-struck" aria-role="presentation" aria-label="GRINNING FACE WITH STAR EYES"></i> </button>';
             echo '</div>';
             echo '</div>';
-            echo '<a style="display:flex; flex-direction:column; color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='.$donnee['id'].'">';
+            echo '<a style="display:flex; flex-direction:column; color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='.$donnee['id'].'" data-realisateur="'.$donnee['realisateur'].'" data-date="en '.$donnee['date_parution'].'">';
             echo '<div style="display:flex; align-items:flex-start; justify-content:space-between;">
-    <div style="margin-left: -15px; margin-right: 5px;">
         <a style="font-weight:bold;">'. $donnee['titre'] .'</a> </br>
         <a style="color:#3686ff;" href="afficherfilmdeacteur.php?id='. $donnee['realisateur'] .'">'. $donnee['realisateur'] .'</a>
         <span style="color:#3686ff;"> en '. $donnee['date_parution'] .'</span>
-    </div>
     <a class="buttonsinglemoviegallery" href="mettredanspanier.php?idfilm='. $donnee['id'] .'">
         <i class="em em-shopping_trolley" aria-role="presentation" aria-label="SHOPPING TROLLEY"></i>
     </a>

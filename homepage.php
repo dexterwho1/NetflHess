@@ -9,6 +9,7 @@ require_once "db.php";
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tDZBOSXpx2vtyGJPH/BrB/3sNC6UvxQ6UaZ6NDH1+IH3z9g9KjG9fR5C45z+DDh4BcYbivJOfn/x+kvfnBAdFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
     <title>Netfl-Hess</title>
 </head>
@@ -95,8 +96,16 @@ require_once "db.php";
 
 <section>
 
-    <!-- film ou série en vedette -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
+    <!-- film ou série en vedette -->
+    <?php
+    if(isset($_SESSION['success'])) {
+        $notification = $_SESSION['success'];
+        echo "<script>new Notyf().success('Votre compte à bien été inscrit');</script>";
+        unset($_SESSION['success']);
+    }
+    ?>
     <article class="filmvedettesection">
 
         <?php

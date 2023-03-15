@@ -110,7 +110,7 @@ require_once "db.php";
     <aside class="movieGallery">
 
         <?php
-        $req = $bdd->prepare('SELECT id, realisateur, image, genre, titre, date_parution FROM film WHERE type_film = 1');
+        $req = $bdd->prepare('SELECT realisateur, MIN(titre) AS titre FROM film GROUP BY realisateur');
         $req->execute();
 
         while ($donnee = $req->fetch()) {
@@ -119,7 +119,7 @@ require_once "db.php";
                 <p class="text-title">' . $donnee['realisateur'] . '</p>
                 <p class="text-body">Connu pour avoir réalisé  ' . $donnee['titre'] . '</p>
             </div>
-            <a style="text-decoration: none" href="showfilmbyauthor.php?' . $donnee['realisateur'] . '" class="card-button">En voir plus</a>
+            <a style="text-decoration: none" href="showfilmbyauthor.php?id=' . $donnee['realisateur'] . '" class="card-button">En voir plus</a>
         </div>';
         }
         ?>

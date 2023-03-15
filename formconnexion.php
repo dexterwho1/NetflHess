@@ -15,13 +15,11 @@ $donnee =$req->fetch();
         echo"pas bon email";
     }
     else{
-        if ($donnee['motdepasse']==$password){
-            echo'<p> identification reussi</p>';
-            $_SESSION['email']=$email;
+         if (password_verify($password, $donnee['motdepasse'])) {
+            echo '<p>Identification réussie</p>';
+            $_SESSION['email'] = $email;
             $_SESSION['prenom'] = $donnee['prenom'];
-
             header('Location: homepage.php');
-
         }
         else{
             echo'pas bon';

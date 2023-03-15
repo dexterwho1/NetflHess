@@ -1,10 +1,12 @@
 <?php
+
 require_once "db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="inscription.css">
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -20,7 +22,7 @@ require_once "db.php";
     <!-- side Bar -->
     <nav class="sideBarHeader">
         <i>
-            Accueil
+        Accueil
         </i>
 
         <i>
@@ -59,6 +61,8 @@ require_once "db.php";
 
         <div class="userHeader">
             <li>
+
+
                 Panier
             </li>
 
@@ -73,9 +77,12 @@ require_once "db.php";
 
 <!-- principal -->
 <section class="inscriptionPage">
+
+
     <p class ="login "> Déja un compte ? <a  href="connexion.php">  se connecter </a></p>
 
     <form method='post' action='forminscription.php'>
+
     <div class="upforminscription">
 
         <!-- Identité-->
@@ -180,8 +187,20 @@ require_once "db.php";
                     j'accepte les conditions d'utilisation
                 </div>
             </fieldset>
+            <p >
+                <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+                <?php
+                if(isset($_SESSION['notification'])) {
+                    $notification = $_SESSION['notification'];
+                    echo "<script>new Notyf().error('$notification');</script>";
+                    unset($_SESSION['notification']);
+                }
+                ?>
+
 
             <div>
+
                 <input class="submit" type="submit">
             </div>
         </div >
@@ -192,9 +211,7 @@ require_once "db.php";
 
 </section>
 
-
 <footer>
-
 
 </footer>
 </body>

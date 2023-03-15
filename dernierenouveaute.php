@@ -9,8 +9,57 @@ require_once "db.php";
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tDZBOSXpx2vtyGJPH/BrB/3sNC6UvxQ6UaZ6NDH1+IH3z9g9KjG9fR5C45z+DDh4BcYbivJOfn/x+kvfnBAdFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <title>Netfl-Hess</title>
+
+    <style>
+        /* Règles CSS pour les écrans en mode téléphone */
+        @media only screen and (max-width: 480px) {
+
+            .userHeader {
+                margin-left: 63px;
+                padding-right: 12px;
+                display: flex;
+                max-width: 100%;
+                float: right;
+                width: 25%;
+                justify-content: space-around;
+                list-style-type: none;
+            }
+            .sideBarHeader {
+
+                display: none;
+            }
+            .containerHeader {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-left: -114px;
+            }
+            .movieGallery {
+                margin-top: 55px;
+                margin-left: 33px;
+                margin-right: -111px; /* Ajouter une marge à droite */
+                list-style: none;
+                display: grid;
+                flex-direction: column-reverse;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            input[type="search"] {
+                background-color: #d84745;
+                height: 50px;
+                width: 261px;
+                padding: 10px;
+                color: white;
+                border: none;
+                outline: none;
+            }
+
+        }
+    </style>
+
 </head>
 <body>
 

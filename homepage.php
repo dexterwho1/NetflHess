@@ -10,6 +10,9 @@ require_once "db.php";
     <style>
         /* Règles CSS pour les écrans en mode téléphone */
         @media only screen and (max-width: 480px) {
+            .ahomepage{
+                display:none;
+            }
             .navCategory {
 
                 display: grid;
@@ -97,7 +100,7 @@ require_once "db.php";
 
                 else{
 
-                    echo '<a href="inscription.php"> s\'inscrire <a>';
+                    echo '<a class="ahomepage" href="inscription.php"> s\'inscrire <a>';
                     echo '<i class="fa-thin fa-id-card"></i>';
                 }
                 ?>

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 require_once "db.php";
 ?>
 <!DOCTYPE html>
@@ -182,7 +184,7 @@ require_once "db.php";
             echo '<a style="display:flex; flex-direction:column; color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='.$donnee['id'].'" data-realisateur="'.$donnee['realisateur'].'" data-date="en '.$donnee['date_parution'].'">';
             echo '<div style="display:flex; align-items:flex-start; justify-content:space-between;">
         <a style="font-weight:bold;">'. $donnee['titre'] .'</a> </br>
-        <a style="color:#3686ff;" href="afficherfilmdeacteur.php?id='. $donnee['realisateur'] .'">'. $donnee['realisateur'] .'</a>
+        <a style="color:#3686ff;" href="showfilmbyauthor.php?id='. $donnee['realisateur'] .'">'. $donnee['realisateur'] .'</a>
         <span style="color:#3686ff;"> en '. $donnee['date_parution'] .'</span>
     <a class="buttonsinglemoviegallery" href="mettredanspanier.php?idfilm='. $donnee['id'] .'">
         <i class="em em-shopping_trolley" aria-role="presentation" aria-label="SHOPPING TROLLEY"></i>

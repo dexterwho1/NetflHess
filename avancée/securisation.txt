@@ -1,0 +1,38 @@
+prenom :
+contient que des lettres ou '-' ','
+supérieur à deux et inférieur à 25 
+
+nom de famille
+contient que des lettres ou '-' ','
+supérieur à deux et inférieur à 25 
+
+e mail
+-verifier présende de @ et de un seul @
+-vérifier présence de point
+-pas d'espace
+-contient lettre chiffre . et -
+-supérieur a 5 et inférieur à 30
+-pas déja présente dans l'adresse e mail
+-vérifier code pas intégré
+
+mot de passe
+mot de passe de minimum 8 caractère
+maximum 25
+majuscule
+une minuscule
+un chiffre
+caractère spécial
+
+pas de mot de passe courant :
+contenant nom, prenom, ni motdepasse
+
+
+adresse:
+min 8 lettre
+minimum deux espaces
+pas de caractère spéciaux a par apostrophe et tiret
+
+tel 
+lettre <10 et supérieur a 15
+pas de lettre
+doit contenir un + à la premiere lettre

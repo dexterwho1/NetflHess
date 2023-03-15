@@ -1,7 +1,8 @@
 <?php
 require_once "db.php";
-session_start();
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,12 +92,12 @@ session_start();
                 <div>
                     <label>                    <i class="em em-e-mail" aria-role="presentation" aria-label="E-MAIL SYMBOL"></i>
                     </label>
-                    <input name="email" required  placeholder="adresse email"type="text">
+                    <input name="email" required  placeholder="adresse email"type="email">
                 </div>
 
                 <div>
                     <label><i class="em em-closed_lock_with_key" aria-role="presentation" aria-label="CLOSED LOCK WITH KEY"></i></label>
-                    <input name="password"  placeholder=" mot de passe" required type="text">
+                    <input name="password"  placeholder=" mot de passe" required type="password">
                 </div>
 
                 <div>

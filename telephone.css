@@ -1,0 +1,73 @@
+@media only screen and (min-width: 360px) and (max-width: 740px)
+{ /* styles go here */
+    .filmvedettesection {
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sideBarHeader{
+        display:none;
+    }
+
+    navCategory{
+        display:flex;
+        flex-direction:column;
+    }
+    .movieGallery{
+
+        margin-top: 55px;
+        margin-left: 170px ;
+        list-style: none;
+        display: grid;
+        grid-template-columns:  1fr;
+
+
+    }
+
+    .menuHeader{
+        background-color: #e14d4b;
+        margin-left: 0px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    input[type="search"] {
+
+        background-color: #d84745;
+        height: 50px;
+        width: 280px;
+        padding: 10px;
+        color:white;
+        border: none;
+        outline: none;
+
+    }
+
+    .userHeader{
+        margin-left: 0px;
+        display: flex;
+        max-width: 100%;
+        float: right;
+        width: 25%;
+        justify-content: space-around;
+        list-style-type: none;
+    }
+
+    .accountname{
+        display:none;
+    }
+
+    .downmoviegallery{
+        display:flex;
+        flex-direction: column;
+    }
+
+    body{
+        width:100%;
+    }
+
+}

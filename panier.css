@@ -78,3 +78,9 @@ fieldset:hover {
     margin-left:15%;
 
 }
+
+@media only screen and (max-width: 768px) {
+    body{
+        background-color:red;
+    }
+}

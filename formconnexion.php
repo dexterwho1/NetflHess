@@ -81,7 +81,7 @@ $req->execute(array('email' =>$email));
 $donnee =$req->fetch();
 
     if ($donnee['email'] != $email){
-        echo"pas bon email";
+        header('Location: connexion.php');
     }
     else{
          if (password_verify($motdepasse, $donnee['motdepasse'])) {
@@ -93,7 +93,7 @@ $donnee =$req->fetch();
              header('Location: homepage.php');
         }
         else{
-            echo'pas bon';
+            header('Location: connexion.php');
         }
     }
 

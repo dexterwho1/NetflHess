@@ -7,8 +7,21 @@ require_once "db.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        /* Règles CSS pour les écrans en mode téléphone */
+        @media only screen and (max-width: 480px) {
+            .navCategory {
+
+                display: grid;
+                flex-direction: column;
+            }
+        }
+    </style>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="telephone.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tDZBOSXpx2vtyGJPH/BrB/3sNC6UvxQ6UaZ6NDH1+IH3z9g9KjG9fR5C45z+DDh4BcYbivJOfn/x+kvfnBAdFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
@@ -77,7 +90,7 @@ require_once "db.php";
             <li class="account">
                 <?php
                 if (isset($_SESSION['prenom'])) {
-                    echo '<a style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
+                    echo '<a class="accountname" style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
                     echo'<i class="em em-toolbox" aria-role="presentation" aria-label="TOOLBOX"></i>';
 
                 }
@@ -182,7 +195,7 @@ require_once "db.php";
             echo '</div>';
             echo '</div>';
             echo '<a style="display:flex; flex-direction:column; color:grey; font-style: italic; width:30%; min-width: 30%; height:auto; text-decoration: none;" class="liensinglemovieGallery" href="mettredanspanier.php?idfilm='.$donnee['id'].'" data-realisateur="'.$donnee['realisateur'].'" data-date="en '.$donnee['date_parution'].'">';
-            echo '<div style="display:flex; align-items:flex-start; justify-content:space-between;">
+            echo '<div class="downmoviegallery" style="display:flex; align-items:flex-start; justify-content:space-between;">
         <a style="font-weight:bold;">'. $donnee['titre'] .'</a> </br>
         <a style="color:#3686ff;" href="showfilmbyauthor.php?id='. $donnee['realisateur'] .'">'. $donnee['realisateur'] .'</a>
         <span style="color:#3686ff;"> en '. $donnee['date_parution'] .'</span>

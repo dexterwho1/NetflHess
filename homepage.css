@@ -317,3 +317,9 @@ background-color: #e14d4b;
     height:auto;
     text-decoration: none;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+

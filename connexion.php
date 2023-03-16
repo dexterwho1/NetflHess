@@ -17,6 +17,48 @@ if (!isset($_SESSION)) {
 
     <title>Netfl-Hess</title>
     <style>
+        .forme{
+        background-color: #DDDDDD;
+        }
+        .menu-btn{
+            display:none;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu.show {
+            display: block;
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #333;
+            color: #fff;
+        }
         /* Règles CSS pour les écrans en mode téléphone */
         @media only screen and (max-width: 480px) {
 
@@ -51,45 +93,76 @@ if (!isset($_SESSION)) {
                 outline: none;
             }
 
-            form{
-                margin-top: 21px;
-                background-color: #DDDDDD;
-                margin-left: 46px;
-            }            }
 
+        .userHeader {
+            margin-left: -12px;
+            padding-right: 12px;
+            display: flex;
+            max-width: 100%;
+            float: right;
+            width: 25%;
+            justify-content: space-around;
+            list-style-type: none;
+        }
+        .menu-btn{
+            display: block;
+        }
+        .ahomepage{
+            display:none;
+        }
+        .navCategory {
+
+            display: grid;
+            flex-direction: column;
+        }
+        .containerHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: -141px;
+        }
         }
     </style>
 
 </head>
 <body>
 
-<header class="containerHeader">
+<header style="text-align: center;" class="containerHeader">
 
     <!-- side Bar -->
     <nav class="sideBarHeader">
-        <i>
+
+        <a class="firstsidebarheader " style="color: #ff4250;margin-top: 15px; "href="homepage.php">
             Accueil
-        </i>
+            <i style="    filter: grayscale(0%);
+; "class=" coloresidebarheader em em-house_with_garden" aria-role="presentation" aria-label="HOUSE WITH GARDEN"></i>
+        </a>
 
-        <i>
+        <a href="showfilm.php">
             Film
-        </i>
+            <i class="em em-popcorn" aria-role="presentation" aria-label="POPCORN"></i>
 
-        <i>
+        </a>
+
+        <a href="showserie.php">
             Série
-        </i>
+            <i class="em em-tv" aria-role="presentation" aria-label="TELEVISION"></i>
+        </a>
 
-        <i>
+        <a href="auteur.php">
             Auteur
-        </i>
+            <i class="em em-male-technologist" aria-role="presentation" aria-label=""></i>
+        </a>
 
-        <i>
+        <a href="dernierenouveaute.php">
             Dernière nouveauté
-        </i>
+            <i class="em em-new" aria-role="presentation" aria-label="SQUARED NEW"></i>
+        </a>
 
-        <i>
+        <a href="homepage.php">
             lancer un film au hasard
-        </i>
+            <i class="em em-twisted_rightwards_arrows" aria-role="presentation" aria-label="TWISTED RIGHTWARDS ARROWS"></i>
+        </a>
 
 
 
@@ -98,22 +171,73 @@ if (!isset($_SESSION)) {
     <!-- menu horizontal -->
 
     <nav class="menuHeader">
-        <form>
-            <input type="search" placeholder="Alice au pays des merveilles">
-            <input type="submit">
+        <button class="menu-btn">menu</button>
+        <div class="menu">
+            <ul>
+                <li><a href="homepage.php"><span>Accueil</span><i class="coloresidebarheader em em-house_with_garden" aria-role="presentation" aria-label="HOUSE WITH GARDEN"></i></a></li>
+
+                <li><a href="showfilm.php"><span>Film</span><i class="em em-popcorn" aria-role="presentation" aria-label="POPCORN"></i></a></li>
+
+                <li><a href="showserie.php"><span>Série</span><i class="em em-tv" aria-role="presentation" aria-label="TELEVISION"></i></a></li>
+
+                <li><a href="auteur.php"><span>Auteur</span><i class="em em-male-technologist" aria-role="presentation" aria-label=""></i></a></li>
+
+                <li><a href="dernierenouveaute.php"><span>Dernière nouveauté</span><i class="em em-new" aria-role="presentation" aria-label="SQUARED NEW"></i></a></li>
+
+                <li><a href="homepage.php"><span>Lancer un film au hasard</span><i class="em em-twisted_rightwards_arrows" aria-role="presentation" aria-label="TWISTED RIGHTWARDS ARROWS"></i></a></li>
+                <li><a href="homepage.php"><span>Connexion</span><i class="em em-twisted_rightwards_arrows" aria-role="presentation" aria-label="TWISTED RIGHTWARDS ARROWS"></i></a></li>
+
+                <?php
+                if (isset($_SESSION['prenom'])) {
+                    echo '<li><a class="accountname" style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
+                    echo'<i class="em em-toolbox" aria-role="presentation" aria-label="TOOLBOX"></i></li>';
+
+                }
+
+                else{
+
+                    echo '<li><a class="ahomepage" href="inscription.php"> s\'inscrire <a>';
+                    echo '<i class="fa-thin fa-id-card"></i></li>';
+                }
+                ?>
+            </ul>
+        </div>
+        <script>
+            const btn = document.querySelector('.menu-btn');
+            const menu = document.querySelector('.menu');
+
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        </script>
+        <form style="background-color: #d84745;" action="barrederecherche.php" method="POST">
+            <input type="search" name="search" placeholder="  Rechercher un film, série ou auteur ">
+            <button type="submit">
+                <i class="em em-mag" aria-role="presentation" aria-label="LEFT-POINTING MAGNIFYING GLASS"></i>            </button>
 
 
         </form>
 
         <div class="userHeader">
-            <li>
-                Panier
-            </li>
+            <a href="panier.php">
+                <i class="em em-shopping_trolley" aria-role="presentation" aria-label="SHOPPING TROLLEY"></i>
+            </a>
 
-            <li>
-                utilisateur
-            </li>
+            <li class="account">
+                <?php
+                if (isset($_SESSION['prenom'])) {
+                    echo '<a class="accountname" style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
+                    echo'<i class="em em-toolbox" aria-role="presentation" aria-label="TOOLBOX"></i>';
 
+                }
+
+                else{
+
+                    echo '<a class="ahomepage" href="inscription.php"> s\'inscrire <a>';
+                    echo '<i class="fa-thin fa-id-card"></i>';
+                }
+                ?>
+            </li>
         </div>
     </nav>
 
@@ -123,7 +247,7 @@ if (!isset($_SESSION)) {
 <section class="inscriptionpage">
     <p class ="login "> Pas de  compte ? <a  href="inscription.php">  s'inscrire </a></p>
 
-    <form  style ="background-color: #DDDDDD;" method="post" action="formconnexion.php">
+    <form  class="forme"  method="post" action="formconnexion.php">
         <!-- Identité-->
         <fieldset>
             <legend>Connexion</legend>

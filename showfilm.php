@@ -19,6 +19,47 @@ require_once "db.php";
     <title>Netfl-Hess</title>
 
     <style>
+
+        .menu-btn{
+            display:none;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu.show {
+            display: block;
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
         /* Règles CSS pour les écrans en mode téléphone */
         @media only screen and (max-width: 480px) {
 
@@ -61,7 +102,17 @@ require_once "db.php";
                 border: none;
                 outline: none;
             }
+            .menu-btn{
+                display: block;
+            }
+            .ahomepage{
+                display:none;
+            }
+            .navCategory {
 
+                display: grid;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -111,6 +162,45 @@ require_once "db.php";
     <!-- menu horizontal -->
 
     <nav class="menuHeader">
+        <button class="menu-btn">menu</button>
+        <div class="menu">
+            <ul>
+                <li><a href="homepage.php"><span>Accueil</span><i class="coloresidebarheader em em-house_with_garden" aria-role="presentation" aria-label="HOUSE WITH GARDEN"></i></a></li>
+
+                <li><a href="showfilm.php"><span>Film</span><i class="em em-popcorn" aria-role="presentation" aria-label="POPCORN"></i></a></li>
+
+                <li><a href="showserie.php"><span>Série</span><i class="em em-tv" aria-role="presentation" aria-label="TELEVISION"></i></a></li>
+
+                <li><a href="auteur.php"><span>Auteur</span><i class="em em-male-technologist" aria-role="presentation" aria-label=""></i></a></li>
+
+                <li><a href="dernierenouveaute.php"><span>Dernière nouveauté</span><i class="em em-new" aria-role="presentation" aria-label="SQUARED NEW"></i></a></li>
+
+                <li><a href="homepage.php"><span>Lancer un film au hasard</span><i class="em em-twisted_rightwards_arrows" aria-role="presentation" aria-label="TWISTED RIGHTWARDS ARROWS"></i></a></li>
+                <li><a href="homepage.php"><span>Connexion</span><i class="em em-twisted_rightwards_arrows" aria-role="presentation" aria-label="TWISTED RIGHTWARDS ARROWS"></i></a></li>
+
+                <?php
+                if (isset($_SESSION['prenom'])) {
+                    echo '<li><a class="accountname" style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
+                    echo'<i class="em em-toolbox" aria-role="presentation" aria-label="TOOLBOX"></i></li>';
+
+                }
+
+                else{
+
+                    echo '<li><a class="ahomepage" href="inscription.php"> s\'inscrire <a>';
+                    echo '<i class="fa-thin fa-id-card"></i></li>';
+                }
+                ?>
+            </ul>
+        </div>
+        <script>
+            const btn = document.querySelector('.menu-btn');
+            const menu = document.querySelector('.menu');
+
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        </script>
         <form action="barrederecherche.php" method="POST">
             <input type="search" name="search" placeholder="  Rechercher un film, série ou auteur ">
             <button type="submit">
@@ -127,14 +217,14 @@ require_once "db.php";
             <li class="account">
                 <?php
                 if (isset($_SESSION['prenom'])) {
-                    echo '<a style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
+                    echo '<a class="accountname" style="color:white; text-decoration: none" href="connexion.php">'.$_SESSION['prenom']. '<a>';
                     echo'<i class="em em-toolbox" aria-role="presentation" aria-label="TOOLBOX"></i>';
 
                 }
 
                 else{
 
-                    echo '<a href="inscription.php"> s\'inscrire <a>';
+                    echo '<a class="ahomepage" href="inscription.php"> s\'inscrire <a>';
                     echo '<i class="fa-thin fa-id-card"></i>';
                 }
                 ?>
@@ -143,7 +233,6 @@ require_once "db.php";
     </nav>
 
 </header>
-
 <!-- principal -->
 
 <section>

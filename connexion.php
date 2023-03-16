@@ -61,6 +61,9 @@ if (!isset($_SESSION)) {
         }
         /* Règles CSS pour les écrans en mode téléphone */
         @media only screen and (max-width: 480px) {
+            .accountname{
+                display:none;
+            }
 
             .userHeader {
                 margin-left: 63px;
@@ -276,8 +279,24 @@ if (!isset($_SESSION)) {
             }
             ?>
         </fieldset>
+        <fieldset>
+            <legend>
+                Vos achats
+            </legend>
+            <?php
+            $req = $bdd->prepare('SELECT DISTINCT film.titre FROM liste JOIN film ON liste.id_film = film.id WHERE liste.id_utilisateur = :utilisateur');
+            $req->execute(array(
+                ':utilisateur' => $_SESSION['email'],
+            ));
+
+            while ($donnee = $req->fetch()) {
+                echo $donnee["titre"] . "<br>";
+            }
+            ?>
+        </fieldset>
     </form>
 </section>
+
 
 
 
